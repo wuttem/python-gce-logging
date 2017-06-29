@@ -39,7 +39,7 @@ config = {
     'tests_require': test_requirements,
     'packages': {"pythongcelogging": "pythongcelogging"},
     'scripts': [],
-    'name': 'pythongcelogging'
+    'name': 'python-gce-logging'
 }
 
 setup(**config)

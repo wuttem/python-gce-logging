@@ -19,19 +19,6 @@ Register the logging formatter and register your flask context, getters or just 
 
 ```python
     import logging
-    from pythonjsonlogger import jsonlogger
-
-    logger = logging.getLogger()
-
-    logHandler = logging.StreamHandler()
-    formatter = jsonlogger.JsonFormatter()
-    logHandler.setFormatter(formatter)
-    logger.addHandler(logHandler)
-```
-The fmt parser can also be overidden if you want to use an alternate from the default.
-
-```python
-    import logging
     from flask import request
     from pythongcelogging import GCEFormatter
 

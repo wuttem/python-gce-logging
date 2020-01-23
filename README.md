@@ -1,19 +1,17 @@
-Overview
-=======
+# Overview
+
 Python logging formatter for use in Google Container Engine
 
 With this logging formatter the logs will have the correct format for google cloud logging and also include error reporting features. The package builds heavily on python-json-logger and just expends it to include the information needed for the google cloud platform.
 
 
-Installing
-==========
+## Installing
 Pip:
 
     pip install python-gce-logging
 
 
-Usage
-=====
+## Usage
 
 Register the logging formatter and register your flask context, getters or just provide the attributes by hand:
 

@@ -6,7 +6,10 @@ import re
 
 from setuptools import setup
 here = os.path.abspath(os.path.dirname(__file__))
-from pip.req import parse_requirements
+try:  # for pip >= 10
+    from pip._internal.req import parse_requirements
+except ImportError:  # for pip <= 9.0.3
+    from pip.req import parse_requirements
 
 # parse_requirements() returns generator of pip.req.InstallRequirement objects
 install_reqs = parse_requirements('requirements.txt', session=False)
@@ -30,7 +33,6 @@ with open(os.path.join(os.path.abspath(os.path.dirname(__file__)),
 config = {
     'description': 'GCE Logging',
     'author': 'Matthias Wutte',
-    'long_description': readme,
     'url': '',
     'download_url': 'https://github.com/wuttem',
     'author_email': 'matthias.wutte@gmail.com',

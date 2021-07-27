@@ -7,35 +7,40 @@ import re
 from setuptools import setup
 
 # reqs is a list of requirement
-reqs = [
-    "python-json-logger>=0.1.5,<2.0"
-]
+reqs = ["python-json-logger>=0.1.5,<2.0"]
 
-test_requirements = [
-    "pytest"
-]
+test_requirements = ["pytest"]
 
-with open('README.md') as readme_file:
+with open("README.md") as readme_file:
     readme = readme_file.read()
 
 # parse version
-with open(os.path.join(os.path.abspath(os.path.dirname(__file__)),
-                       'pythongcelogging', "__init__.py")) as fdp:
+with open(
+    os.path.join(
+        os.path.abspath(os.path.dirname(__file__)), "pythongcelogging", "__init__.py"
+    )
+) as fdp:
     pattern = re.compile(r".*__version__ = '(.*?)'", re.S)
     VERSION = pattern.match(fdp.read()).group(1)
 
 config = {
-    'description': 'GCE Logging',
-    'author': 'Matthias Wutte',
-    'url': '',
-    'download_url': 'https://github.com/wuttem',
-    'author_email': 'matthias.wutte@gmail.com',
-    'version': VERSION,
-    'install_requires': reqs,
-    'tests_require': test_requirements,
-    'packages': {"pythongcelogging": "pythongcelogging"},
-    'scripts': [],
-    'name': 'python-gce-logging'
+    "description": "GCE Logging",
+    "author": "Matthias Wutte",
+    "author_email": "matthias.wutte@gmail.com",
+    "license": "MIT",
+    "url": "https://github.com/wuttem/python-gce-logging",
+    "classifiers": [
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3",
+        "Topic :: System :: Logging",
+    ],
+    "version": VERSION,
+    "install_requires": reqs,
+    "tests_require": test_requirements,
+    "packages": {"pythongcelogging": "pythongcelogging"},
+    "scripts": [],
+    "name": "python-gce-logging",
 }
 
 setup(**config)
